@@ -208,10 +208,10 @@ const technologies = [
     name: "OpenCV",
     icon: opencv,
   },
-  {
-    name: "Pandas",
-    icon: python, // Using Python icon for Pandas since it's closely related
-  },
+  // {
+  //   name: "Pandas",
+  //   icon: python, // Using Python icon for Pandas since it's closely related
+  // },
   
 
 ];
