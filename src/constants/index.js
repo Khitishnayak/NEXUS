@@ -238,8 +238,8 @@ const testimonials = [
     testimonial:
       "Kshitish’s backend and integration work were key to making TravelWise functional under hackathon time pressure.",
     name: "Vivekanand Sinku",
-    designation: "Frontend Developer",
-    // company: "Their Company",
+    designation: "Frontend Developer + Backend Developer",
+     company: "SIH 2025",
     image: firstTestimonial, // Replace with their photo
   },
   {
@@ -247,7 +247,7 @@ const testimonials = [
       "Kshitish’s work on the backend and dashboard was crucial in turning an idea into a working prototype.",
     name: "Sambit Kumar Pattanaik",
     designation: "UI/UX Designer",
-    // company: "Their Organization",
+    company: "SIH 2025",
     image: secondTestimonial,
   },
   {
