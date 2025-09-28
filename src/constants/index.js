@@ -236,26 +236,26 @@ const experiences = [
 const testimonials = [
   {
     testimonial:
-      "Replace with actual testimonial from your client or colleague",
-    name: "Client/Colleague Name",
-    designation: "Their Job Title",
-    company: "Their Company",
+      "Kshitish’s backend and integration work were key to making TravelWise functional under hackathon time pressure.",
+    name: "Vivekanand Sinku",
+    designation: "Frontend Developer",
+    // company: "Their Company",
     image: firstTestimonial, // Replace with their photo
   },
   {
     testimonial:
-      "Add another real testimonial about your work",
-    name: "Another Reference",
-    designation: "Their Position",
-    company: "Their Organization",
+      "Kshitish’s work on the backend and dashboard was crucial in turning an idea into a working prototype.",
+    name: "Sambit Kumar Pattanaik",
+    designation: "UI/UX Designer",
+    // company: "Their Organization",
     image: secondTestimonial,
   },
   {
     testimonial:
-      "Third testimonial highlighting your skills and impact",
-    name: "Third Reference",
-    designation: "Their Role",
-    company: "Their Company",
+      "An impressive project demonstrating problem-solving skills and innovative thinking.",
+    // name: "Third Reference",
+    designation: "Judge at Techfest 2025",
+    // company: "Their Company",
     image: thirdTestimonial,
   },
   // If you don't have testimonials yet, you can remove this section or add placeholder text
