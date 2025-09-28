@@ -4,7 +4,7 @@ import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
-const Computers = () => {
+const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
   return (
@@ -21,8 +21,8 @@ const Computers = () => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={0.75} // Keep scale normal for desktop
-        position={[0, -3.25, -1.5]}
+        scale={isMobile ? 0.5 : 0.75} // Smaller scale for mobile
+        position={isMobile ? [0, -2.5, -1.5] : [0, -3.25, -1.5]} // Adjusted position for mobile
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -30,10 +30,10 @@ const Computers = () => {
 };
 
 const ComputersCanvas = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 500);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     
     const handleMediaQueryChange = (event) => {
       setIsMobile(event.matches);
@@ -47,25 +47,29 @@ const ComputersCanvas = () => {
   }, []);
 
   return (
-    !isMobile && ( // Hide on mobile screens
-      <Canvas
-        frameloop="demand"
-        shadows
-        dpr={[1, 2]}
-        camera={{ position: [20, 3, 5], fov: 25 }}
-        gl={{ preserveDrawingBuffer: true }}
-      >
-        <Suspense fallback={<CanvasLoader />}>
-          <OrbitControls
-            enableZoom={false}
-            maxPolarAngle={Math.PI / 2}
-            minPolarAngle={Math.PI / 2}
-          />
-          <Computers />
-        </Suspense>
-        <Preload all />
-      </Canvas>
-    )
+    <Canvas
+      frameloop="demand"
+      shadows
+      dpr={isMobile ? [1, 1.5] : [1, 2]} // Lower DPR for mobile performance
+      camera={{ 
+        position: isMobile ? [20, 3, 5] : [20, 3, 5], 
+        fov: isMobile ? 30 : 25 // Slightly wider FOV for mobile
+      }}
+      gl={{ preserveDrawingBuffer: true }}
+      className={isMobile ? "h-[350px]" : "h-full"} // Limit height on mobile
+    >
+      <Suspense fallback={<CanvasLoader />}>
+        <OrbitControls
+          enableZoom={false}
+          maxPolarAngle={Math.PI / 2}
+          minPolarAngle={Math.PI / 2}
+          enablePan={false} // Disable panning on mobile for better performance
+          enableRotate={!isMobile} // Disable rotation on very small screens
+        />
+        <Computers isMobile={isMobile} />
+      </Suspense>
+      <Preload all />
+    </Canvas>
   );
 };
 
