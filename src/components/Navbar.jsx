@@ -44,8 +44,8 @@ const Navbar = () => {
         >
           <img src={logo} alt='logo' className='w-9 h-9 object-contain' />
           <p className='text-white text-[18px] font-bold cursor-pointer flex '>
-            Kshitish &nbsp;
-            <span className='sm:block hidden'> | Nexus</span>
+           NEXUS &nbsp;
+            <span className='sm:block hidden'> |     Mind Beyond The Machines</span>
           </p>
         </Link>
 
