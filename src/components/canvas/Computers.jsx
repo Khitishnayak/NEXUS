@@ -22,7 +22,7 @@ const Computers = () => {
       <primitive
         object={computer.scene}
         scale={0.75} // Keep scale normal for desktop
-        position={[0, -3.25, -1.5]}
+        position={[2, -3.25, -1.5]} // Moved slightly to the right to avoid text overlap
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -54,6 +54,8 @@ const ComputersCanvas = () => {
         dpr={[1, 2]}
         camera={{ position: [20, 3, 5], fov: 25 }}
         gl={{ preserveDrawingBuffer: true }}
+        className="w-full h-full"
+        style={{ pointerEvents: 'auto' }}
       >
         <Suspense fallback={<CanvasLoader />}>
           <OrbitControls
